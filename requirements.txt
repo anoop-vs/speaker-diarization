@@ -8,5 +8,4 @@ numpy
 librosa
 matplotlib
 nemo
-shutil
 json
