@@ -8,4 +8,4 @@ numpy
 librosa
 matplotlib
 nemo
-cython
+Cython
