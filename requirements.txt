@@ -9,4 +9,4 @@ librosa
 matplotlib
 nemo
 Cython
-youtokentome
+youtokentome==1.0.5
