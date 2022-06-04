@@ -8,7 +8,6 @@ numpy
 librosa
 matplotlib
 nemo
-glob
 time
 shutil
 json
