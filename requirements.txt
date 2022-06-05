@@ -1,8 +1,7 @@
 wget
 unidecode
 Cython
-youtokentome
-nemo-toolkit
+nemo_toolkit['asr']
 transformers
 torchaudio
 streamlit
