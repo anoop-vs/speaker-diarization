@@ -1,6 +1,7 @@
 wget
 unidecode
 Cython
+transformers
 nemo-asr
 torchaudio -f https://download.pytorch.org/whl/torch_stable.html
 streamlit
