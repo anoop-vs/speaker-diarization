@@ -1,3 +1,4 @@
+Cython==0.29.21
 wget
 unidecode
 git+https://github.com/NVIDIA/NeMo.git@main#egg=nemo_toolkit[asr]
