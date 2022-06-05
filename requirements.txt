@@ -30,3 +30,4 @@ pyannote.core
 pyannote.metrics
 ipywidgets
 sentencepiece
+youtokentome 
