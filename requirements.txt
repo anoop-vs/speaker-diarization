@@ -1,4 +1,4 @@
-setuptools
+pip==22.1.2
 wget
 cython==0.29.30
 unidecode
