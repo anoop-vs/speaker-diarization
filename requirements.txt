@@ -1,9 +1,10 @@
 wget
 unidecode
 Cython
-transformers
+youtokentome
 nemo-asr
-torchaudio -f https://download.pytorch.org/whl/torch_stable.html
+transformers
+torchaudio
 streamlit
 omegaconf
 numpy
@@ -30,4 +31,3 @@ pyannote.core
 pyannote.metrics
 ipywidgets
 sentencepiece
-youtokentome 
