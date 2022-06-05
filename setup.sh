@@ -6,4 +6,4 @@ port = $PORT\n\
 enableCORS = false\n\
 \n\
 " > ~/.streamlit/config.toml
-mkdir pred_rttms
+mkdir $pred_rttms
