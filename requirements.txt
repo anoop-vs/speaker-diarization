@@ -9,3 +9,4 @@ numpy
 librosa
 matplotlib
 hydra-core
+pytorch-lightning
