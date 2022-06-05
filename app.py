@@ -89,7 +89,7 @@ def main():
 					contents = f.read().splitlines()
 				return contents
 
-			predicted_speaker_label_rttm_path = f"/pred_rttms/commercial_mono.rttm"
+			predicted_speaker_label_rttm_path = "commercial_mono.rttm"
 			pred_rttm = read_file(predicted_speaker_label_rttm_path)
 
 			st.text(pred_rttm)
@@ -99,11 +99,11 @@ def main():
 	 
 			asr_diar_offline.get_transcript_with_speaker_labels(diar_hyp, word_hyp, word_ts_hyp)
 	 
-			transcription_path_to_file = f"/pred_rttms/commercial_mono.txt"
+			transcription_path_to_file = "commercial_mono.txt"
 			transcript = read_file(transcription_path_to_file)
 			st.text(transcript)
 	 
-			transcription_path_to_file = f"/pred_rttms/commercial_mono.json"
+			transcription_path_to_file = "commercial_mono.json"
 			json_contents = read_file(transcription_path_to_file)
 			st.json(json_contents)
 
