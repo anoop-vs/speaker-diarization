@@ -2,7 +2,7 @@ wget
 unidecode
 Cython
 youtokentome
-nemo-asr
+nemo-toolkit
 transformers
 torchaudio
 streamlit
