@@ -8,3 +8,4 @@ omegaconf
 numpy
 librosa
 matplotlib
+hydra
