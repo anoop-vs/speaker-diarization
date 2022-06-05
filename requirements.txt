@@ -10,3 +10,4 @@ librosa
 matplotlib
 hydra-core
 pytorch-lightning
+braceexpand
