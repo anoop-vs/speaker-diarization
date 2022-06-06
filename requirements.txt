@@ -1,6 +1,7 @@
 wget
 unidecode
 Cython
+youtokentome
 nemo-asr
 transformers
 torchaudio
