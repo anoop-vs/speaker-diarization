@@ -38,7 +38,8 @@ def main():
 			st.audio(audio, format="audio/wav", start_time=0)
 			with st.spinner('Wait for it...'):
 				time.sleep(20)
-			CONFIG = "offline_diarization_with_asr.yaml"
+			CONFIG_URL = "https://raw.githubusercontent.com/NVIDIA/NeMo/main/examples/speaker_tasks/diarization/conf/offline_diarization_with_asr.yaml"
+			CONFIG = wget.download(CONFIG_URL)
 
 			cfg = OmegaConf.load(CONFIG)
 			#st.text(OmegaConf.to_yaml(cfg))
