@@ -46,7 +46,7 @@ def main():
 
 			import json
 			meta = {'audio_filepath': file_details["filename"], 'offset': 0, 'duration':None, 'label': 'infer', 'text': '-', 'num_speakers': 2, 'rttm_filepath': None, 'uem_filepath' : None}
-			with open(os.path.join('input_manifest.json'),'w') as fp:
+			with open('/tmp/input_manifest.json','w') as fp:
 				json.dump(meta,fp)
 				fp.write('\n')
 			cfg.diarizer.manifest_filepath = '/tmp/input_manifest.json'
