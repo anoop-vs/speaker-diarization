@@ -49,10 +49,10 @@ def main():
 			with open('/tmp/input_manifest.json','w') as fp:
 				json.dump(meta,fp)
 				fp.write('\n')
-			cfg.diarizer.manifest_filepath = '/tmp/input_manifest.json'
+			cfg.diarizer.manifest_filepath = 'input_manifest.json'
 			pretrained_speaker_model='titanet_large'
 			cfg.diarizer.manifest_filepath = cfg.diarizer.manifest_filepath
-			cfg.diarizer.out_dir = "/" #Directory to store intermediate files and prediction outputs
+			cfg.diarizer.out_dir = os.getcwd() #Directory to store intermediate files and prediction outputs
 			cfg.diarizer.speaker_embeddings.model_path = pretrained_speaker_model
 			cfg.diarizer.speaker_embeddings.parameters.window_length_in_sec = 1.5
 			cfg.diarizer.speaker_embeddings.parameters.shift_length_in_sec = 0.75
@@ -85,7 +85,7 @@ def main():
 					contents = f.read().splitlines()
 				return contents
 
-			predicted_speaker_label_rttm_path = "/tmp/commercial_mono.rttm"
+			predicted_speaker_label_rttm_path = "pred_rttms/commercial_mono.rttm"
 			pred_rttm = read_file(predicted_speaker_label_rttm_path)
 
 			st.text(pred_rttm)
@@ -95,11 +95,11 @@ def main():
 	 
 			asr_diar_offline.get_transcript_with_speaker_labels(diar_hyp, word_hyp, word_ts_hyp)
 	 
-			transcription_path_to_file = "/tmp/commercial_mono.txt"
+			transcription_path_to_file = "pred_rttms/commercial_mono.txt"
 			transcript = read_file(transcription_path_to_file)
 			st.text(transcript)
 	 
-			transcription_path_to_file = "/tmp/commercial_mono.json"
+			transcription_path_to_file = "pred_rttms/commercial_mono.json"
 			json_contents = read_file(transcription_path_to_file)
 			st.json(json_contents)
 
