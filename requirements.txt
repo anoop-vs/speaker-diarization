@@ -1,6 +1,5 @@
 wget
 unidecode
-youtokentome
 Cython
 nemo-asr
 transformers
