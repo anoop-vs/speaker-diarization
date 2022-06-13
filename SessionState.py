@@ -1,29 +1,13 @@
-# https://gist.github.com/FranzDiebold/898396a6be785d9b5ca6f3706ef9b0bc
-"""Hack to add per-session state to Streamlit.
-Works for Streamlit >= v0.65
-Usage
------
->>> import SessionState
->>>
->>> session_state = SessionState.get(user_name='', favorite_color='black')
->>> session_state.user_name
-''
->>> session_state.user_name = 'Mary'
->>> session_state.favorite_color
-'black'
-Since you set user_name above, next time your script runs this will be the
-result:
->>> session_state = get(user_name='', favorite_color='black')
->>> session_state.user_name
-'Mary'
+"""
+tvst's SessionState while it's not implemented in Streamlit
+https://gist.github.com/tvst/036da038ab3e999a64497f42de966a92
 """
 
-import streamlit.report_thread as ReportThread
-from streamlit.server.server import Server
+import streamlit.ReportThread as ReportThread
+from streamlit.server.Server import Server
 
 
-class SessionState():
-    """SessionState: Add per-session state to Streamlit."""
+class SessionState(object):
     def __init__(self, **kwargs):
         """A new SessionState object.
         Parameters
@@ -66,17 +50,27 @@ def get(**kwargs):
     """
     # Hack to get the session object from Streamlit.
 
-    session_id = ReportThread.get_report_ctx().session_id
-    session_info = Server.get_current()._get_session_info(session_id)
+    ctx = ReportThread.get_report_ctx()
 
-    if session_info is None:
-        raise RuntimeError('Could not get Streamlit session object.')
+    session = None
+    session_infos = Server.get_current()._session_infos.values()
 
-    this_session = session_info.session
+    for session_info in session_infos:
+        if session_info.session._main_dg == ctx.main_dg:
+            session = session_info.session
+
+    if session is None:
+        raise RuntimeError(
+            "Oh noes. Couldn't get your Streamlit Session object"
+            "Are you doing something fancy with threads?"
+        )
 
     # Got the session object! Now let's attach some state into it.
 
-    if not hasattr(this_session, '_custom_session_state'):
-        this_session._custom_session_state = SessionState(**kwargs)
+    if not getattr(session, "_custom_session_state", None):
+        session._custom_session_state = SessionState(**kwargs)
 
-    return this_session._custom_session_state
+    return session._custom_session_state
+
+
+__all__ = ["get"]
